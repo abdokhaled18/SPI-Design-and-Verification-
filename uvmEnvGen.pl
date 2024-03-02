@@ -53,7 +53,7 @@ class ${\($moduleName)}_agent extends uvm_agent;
 	`uvm_component_utils(${\($moduleName)}_agent);
 	
 	// Intantiate hierarchy components
-	${\($moduleName)}_driver 		m_drv;
+	${\($moduleName)}_driver 		  m_drv;
 	${\($moduleName)}_monitor 		m_mnt;
 	${\($moduleName)}_sequencer 	m_sqncr;
 	
@@ -69,8 +69,8 @@ class ${\($moduleName)}_agent extends uvm_agent;
 		\$display("This is agent build phase");	
 		
 		// Create instances for components
-		m_drv	=	${\($moduleName)}_driver::type_id::create("m_drv",this);
-		m_mnt	=	${\($moduleName)}_monitor::type_id::create("m_mnt",this);
+		m_drv	  =	${\($moduleName)}_driver::type_id::create("m_drv",this);
+		m_mnt	  =	${\($moduleName)}_monitor::type_id::create("m_mnt",this);
 		m_sqncr	=	${\($moduleName)}_sequencer::type_id::create("m_sqncr",this);
 	endfunction
 	
@@ -173,7 +173,7 @@ class ${\($moduleName)}_env extends uvm_env;
 	`define MON_HIER m_agent.m_mnt
 
 	// Intantiate hierarchy components
-	${\($moduleName)}_agent 		m_agent;
+	${\($moduleName)}_agent 		  m_agent;
 	${\($moduleName)}_scoreboard 	m_scrbd;
 	${\($moduleName)}_subscriber 	m_sbscrb;
 
@@ -427,7 +427,7 @@ class ${\($moduleName)}_test extends uvm_test;
 		\$display("This is test build phase");	
 		
 		// Create instances for components
-		m_env	= ${\($moduleName)}_env::type_id::create("m_env",this);
+		m_env	  = ${\($moduleName)}_env::type_id::create("m_env",this);
 		m_sqnc	= ${\($moduleName)}_sequence::type_id::create("m_sqnc");
 	endfunction
 	
@@ -480,7 +480,7 @@ class ${\($moduleName)}_sequencer extends uvm_sequencer #(${\($moduleName)}_sequ
 	// [Build phase] create handles for used components in this scope
 	virtual function void build_phase (uvm_phase phase);
 		super.build_phase(phase);
-		\display("This is sequencer build phase");		
+		\$display("This is sequencer build phase");		
 	endfunction
 	
 	// [Connect phase] Connects used ports with corresponding implementations or exports
