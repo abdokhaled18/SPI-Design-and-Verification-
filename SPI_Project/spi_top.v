@@ -1,0 +1,80 @@
+`timescale 1ns/1ps
+
+module spi_top #(parameter DATA_WIDTH = 8)(
+
+    input i_rst,
+
+    //input i_sys_clk,
+    //input [DATA_WIDTH-1:0] i_sys_address,
+    //input i_sys_wr_en,
+    //output [DATA_WIDTH-1:0] o_sys_data,
+    
+    input i_spi_sck,
+    input i_spi_mosi,
+    input i_spi_cs,
+
+    output o_spi_miso,
+    output o_done
+);
+
+wire [DATA_WIDTH-1:0] shift_reg_recieved_byte;
+wire [DATA_WIDTH-1:0] reg_file_address;
+
+wire shift_reg_byte_is_ready;
+wire shift_reg_en;
+wire reg_file_wr_en;
+wire shift_reg_direction;
+wire shift_reg_par_load;
+wire count_en;
+wire count_clr;
+wire trans_done;
+
+spi_cu #(DATA_WIDTH) 
+    spi_cu_inst (
+        i_rst,
+        i_spi_sck,
+        i_spi_cs,
+        shift_reg_byte_is_ready,
+        shift_reg_recieved_byte,
+        reg_file_address,
+        shift_reg_en,
+        shift_reg_direction,
+        shift_reg_par_load,
+        count_en,
+        count_clr,
+        reg_file_wr_en,
+        trans_done
+);
+
+spi_dp #(DATA_WIDTH) 
+    spi_dp_inst(
+        i_rst,
+        
+        shift_reg_en,
+        shift_reg_direction,
+        shift_reg_par_load,
+        
+        count_en,
+        count_clr,
+        
+        reg_file_wr_en,
+        reg_file_address,
+
+        i_sys_clk,
+        i_sys_address,
+        i_sys_wr_en,
+        o_sys_data,
+
+        i_spi_sck,
+        i_spi_cs,
+        i_spi_mosi,
+        o_spi_miso,
+        
+        trans_done,
+        shift_reg_recieved_byte,
+        shift_reg_byte_is_ready
+    );
+
+assign o_done = trans_done;
+
+endmodule

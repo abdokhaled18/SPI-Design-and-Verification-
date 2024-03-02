@@ -1,0 +1,78 @@
+{D:/New folder/Digital Crash Course/SPI_Project/uni_shift_reg.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/uni_shift_reg.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module uni_shift_reg
+
+Top level modules:
+	uni_shift_reg
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/reg_file_tb.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/reg_file_tb.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module reg_file_tb
+
+Top level modules:
+	reg_file_tb
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/spi_top.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/spi_top.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module spi_top
+
+Top level modules:
+	spi_top
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/spi_cu.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/spi_cu.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module spi_cu
+
+Top level modules:
+	spi_cu
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/spi_top_tb.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/spi_top_tb.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module spi_top_tb
+
+Top level modules:
+	spi_top_tb
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/uni_counter.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/uni_counter.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module uni_counter
+
+Top level modules:
+	uni_counter
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/uni_shift_reg_tb.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/uni_shift_reg_tb.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module uni_shift_reg_tb
+
+Top level modules:
+	uni_shift_reg_tb
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/spi_dp.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/spi_dp.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module spi_dp
+
+Top level modules:
+	spi_dp
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/uni_counter_tb.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/uni_counter_tb.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module uni_counter_tb
+
+Top level modules:
+	uni_counter_tb
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/reg_file.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/reg_file.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module reg_file
+
+Top level modules:
+	reg_file
+
+} {} {}} {D:/New folder/Digital Crash Course/SPI_Project/sys_top.v} {1 {vlog -work work -vopt -stats=none {D:/New folder/Digital Crash Course/SPI_Project/sys_top.v}
+QuestaSim-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module sys_top
+
+Top level modules:
+	sys_top
+
+} {} {}}
