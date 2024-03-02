@@ -2,6 +2,9 @@ use strict;
 use warnings;
 use diagnostics;
 use File::Path; 
+use File::Path qw/make_path/;
+use Cwd;
+
 
 
 # say prints a line followed by a newline
@@ -15,7 +18,7 @@ my $moduleName = "SPI";
 my $sv_ext = ".sv";
 my $designName = "SPI";
 my $runDo = "${\($moduleName)}_run.do";
-
+my $dir = cwd();
 
 # UVM Files 
 my $sequenceItem = $moduleName."_sequence_item".$sv_ext;
@@ -32,7 +35,7 @@ my $top = $moduleName."_top".$sv_ext;
 my $intf = $moduleName."_intf".$sv_ext;
 my $pkg = $moduleName."_pkg".$sv_ext;
 
-system("rm -rf UVM_$moduleName"); 
+rmtree("$dir/UVM_$moduleName/");
 
 mkdir("UVM_$moduleName") or die ("The directory already EXISTED !!");;
 
@@ -637,13 +640,16 @@ quit -sim
 puts "-- [RUN] DELETING WORK LIBRARY..."
 RD /S /Q work
 puts "-- [RUN] DELETING DONE !!"
+
 puts "----------------------------------"
 puts "-- [RUN] CREATING WORK LIBRARY..."
 vlib work
 puts "-- [RUN] CREATION DONE !!"
+
 puts "----------------------------------"
 puts "-- [RUN] COMPILING FILE"
 vlog -work work -vopt -sv ${\($moduleName)}_pkg.sv ${\($moduleName)}_top.sv  ${\($moduleName)}_intf.sv ${\($designName)}.v +cover
+
 puts "----------------------------------"
 puts "-- [RUN] OPENING SIMULATION"
 # vsim ${\($moduleName)}_top -coverage -do "set NoQuitOnFinish 1; run -all; coverage report -codeAll -cvg -verbose"
