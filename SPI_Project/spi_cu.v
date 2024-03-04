@@ -31,8 +31,11 @@ wire cmd_is_write;
 // When byte_count = 1 , address is being recieved
 // When byte_count >= 2 , data is being recieved or transmitted
 reg [ADDRESS_SIZE-1:0] byte_count;
-always @ (posedge i_clk or negedge i_rst ) begin
+always @ (posedge i_clk or negedge i_rst or posedge i_spi_cs ) begin
     if(~i_rst) begin
+        byte_count <= {ADDRESS_SIZE{1'b0}};
+    end
+    else if(i_spi_cs) begin
         byte_count <= {ADDRESS_SIZE{1'b0}};
     end
     else if(byte_is_ready) begin
@@ -46,9 +49,12 @@ localparam  IDLE    = 1'b0,
 
 reg state_reg, state_next;
 
-always @(posedge i_clk or negedge i_rst) begin
+always @(posedge i_clk or negedge i_rst or posedge i_spi_cs) begin
     
     if(~i_rst) begin
+        state_reg <= IDLE;
+    end
+    else if(i_spi_cs) begin
         state_reg <= IDLE;
     end
     else begin
@@ -134,13 +140,13 @@ always @ (posedge i_clk or negedge i_rst) begin
         address_reg <= address_reg + 1;
 end
 assign o_address = (cmd_is_read)? ((byte_count == 1) ? i_recieved_byte : address_reg + 1) : address_reg;
-
+/*
 // [purpose] Reset slave state vars to idle values when transmittion complete
 always @(posedge i_spi_cs) begin
     byte_count  <= {ADDRESS_SIZE{1'b0}};
     state_reg   <= IDLE;
 end
-
+*/
 // Flag indicates that transmittion is done
 assign o_done = i_spi_cs;
 

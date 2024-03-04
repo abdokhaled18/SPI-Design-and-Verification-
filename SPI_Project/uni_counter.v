@@ -16,8 +16,11 @@ module uni_counter #(parameter MOD = 8 , WIDTH = $clog2(MOD))(
 
 reg [WIDTH-1:0] count_reg;
 
-always @(posedge i_clk or negedge i_rst)  begin
-    if (~i_rst || i_clr) begin
+always @(posedge i_clk or negedge i_rst )  begin
+    if (~i_rst) begin
+        count_reg <= {WIDTH {1'b0}};    
+    end
+    else if (i_clr) begin
         count_reg <= {WIDTH {1'b0}};    
     end
     else if (i_en == 1) begin
